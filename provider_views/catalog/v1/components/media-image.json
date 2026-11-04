@@ -1,0 +1,55 @@
+{
+  "identifier": "stateforge.ui/media.image@1",
+  "catalog_status": "proposed",
+  "purpose": "Content-addressed PNG or sanitized SVG.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.provider.overview@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.trigger.policy@1",
+    "stateforge.ui/surface.trigger.event@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "fit": {
+        "type": "string",
+        "enum": [
+          "contain",
+          "cover"
+        ]
+      },
+      "caption": {
+        "type": "string",
+        "maxLength": 160
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [],
+  "asset_slots": [
+    {
+      "name": "image",
+      "media_types": [
+        "image/png",
+        "image/svg+xml"
+      ]
+    }
+  ],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "fit": "contain"
+    },
+    "bindings": {}
+  }
+}

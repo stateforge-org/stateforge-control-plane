@@ -1,0 +1,131 @@
+{
+  "catalog_version": 1,
+  "status": "proposed",
+  "policy": {
+    "meaning_change": "Do not change the meaning of an existing versioned identifier. Introduce a new major identifier and retain the old descriptor when meaning changes.",
+    "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major.",
+    "canonical_source": "Each accepted catalog release preserves a snapshot of these meanings and a generated versioned artifact for comparison."
+  },
+  "initial_meaning_baseline": [
+    {
+      "identifier": "stateforge.ui/action.operation_cancel@1",
+      "meaning": "Request placement of the host-controlled cancellation action."
+    },
+    {
+      "identifier": "stateforge.ui/action.operation_submit@1",
+      "meaning": "Request placement of the host-controlled admission action."
+    },
+    {
+      "identifier": "stateforge.ui/content.markdown@1",
+      "meaning": "Sanitized restricted Markdown."
+    },
+    {
+      "identifier": "stateforge.ui/content.text@1",
+      "meaning": "Plain trusted text."
+    },
+    {
+      "identifier": "stateforge.ui/data.artifacts@1",
+      "meaning": "Results, checkpoints, evidence, and references."
+    },
+    {
+      "identifier": "stateforge.ui/data.chart@1",
+      "meaning": "Line, area, bar, or scatter series."
+    },
+    {
+      "identifier": "stateforge.ui/data.code@1",
+      "meaning": "Read-only code or structured text."
+    },
+    {
+      "identifier": "stateforge.ui/data.diff@1",
+      "meaning": "Before/after or proposed/current differences."
+    },
+    {
+      "identifier": "stateforge.ui/data.key_value@1",
+      "meaning": "Labels and scalar values."
+    },
+    {
+      "identifier": "stateforge.ui/data.log@1",
+      "meaning": "Bounded streaming or retained log output."
+    },
+    {
+      "identifier": "stateforge.ui/data.metric@1",
+      "meaning": "One important numeric measurement."
+    },
+    {
+      "identifier": "stateforge.ui/data.table@1",
+      "meaning": "Repeated objects or records."
+    },
+    {
+      "identifier": "stateforge.ui/data.topology@1",
+      "meaning": "Nodes and relationships."
+    },
+    {
+      "identifier": "stateforge.ui/data.tree@1",
+      "meaning": "Nested structured data."
+    },
+    {
+      "identifier": "stateforge.ui/input.array@1",
+      "meaning": "Repeated structured values."
+    },
+    {
+      "identifier": "stateforge.ui/input.code@1",
+      "meaning": "Structured text, JSON, YAML, or expression editor."
+    },
+    {
+      "identifier": "stateforge.ui/input.field@1",
+      "meaning": "Schema-compatible scalar control."
+    },
+    {
+      "identifier": "stateforge.ui/input.form@1",
+      "meaning": "Complete schema-generated form."
+    },
+    {
+      "identifier": "stateforge.ui/input.key_value@1",
+      "meaning": "Arbitrary property-map editor."
+    },
+    {
+      "identifier": "stateforge.ui/input.object@1",
+      "meaning": "Nested object editor."
+    },
+    {
+      "identifier": "stateforge.ui/input.secret@1",
+      "meaning": "A writeOnly secret value."
+    },
+    {
+      "identifier": "stateforge.ui/layout.grid@1",
+      "meaning": "Responsive grid."
+    },
+    {
+      "identifier": "stateforge.ui/layout.section@1",
+      "meaning": "Titled, optionally collapsible section."
+    },
+    {
+      "identifier": "stateforge.ui/layout.stack@1",
+      "meaning": "Vertical or horizontal content flow."
+    },
+    {
+      "identifier": "stateforge.ui/layout.steps@1",
+      "meaning": "Ordered stages or procedures."
+    },
+    {
+      "identifier": "stateforge.ui/layout.tabs@1",
+      "meaning": "Alternate related representations."
+    },
+    {
+      "identifier": "stateforge.ui/media.image@1",
+      "meaning": "Content-addressed PNG or sanitized SVG."
+    },
+    {
+      "identifier": "stateforge.ui/status.badge@1",
+      "meaning": "Compact semantic state."
+    },
+    {
+      "identifier": "stateforge.ui/status.progress@1",
+      "meaning": "Determinate or staged progress."
+    },
+    {
+      "identifier": "stateforge.ui/status.timeline@1",
+      "meaning": "Ordered events, conditions, or checkpoints."
+    }
+  ]
+}

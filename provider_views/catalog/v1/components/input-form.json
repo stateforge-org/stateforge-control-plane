@@ -1,0 +1,51 @@
+{
+  "identifier": "stateforge.ui/input.form@1",
+  "catalog_status": "proposed",
+  "purpose": "Complete schema-generated form.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.operation.request@1",
+    "stateforge.ui/surface.trigger.policy@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxLength": 160
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "schema",
+      "data_shape": "JSON Schema object",
+      "sources": [
+        "operation.input_schema@1",
+        "trigger.declaration@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": true,
+    "maximum_per_node": 256,
+    "allowed_component_families": ["layout", "input"]
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "title": "Configure operation"
+    },
+    "bindings": {
+      "schema": {
+        "source_identifier": "operation.input_schema@1",
+        "pointer": ""
+      }
+    }
+  }
+}

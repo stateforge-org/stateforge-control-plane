@@ -1,0 +1,17 @@
+{
+  "catalog_version": 1,
+  "sources": [
+    {"identifier": "provider.descriptor@1", "surfaces": ["stateforge.ui/surface.provider.overview@1"], "data_shape": "object", "meaning": "Accepted Provider identity and descriptive manifest data; never executable configuration."},
+    {"identifier": "provider.health@1", "surfaces": ["stateforge.ui/surface.provider.overview@1"], "data_shape": "object", "meaning": "Current StateForge health observation."},
+    {"identifier": "provider.statistics@1", "surfaces": ["stateforge.ui/surface.provider.overview@1"], "data_shape": "object", "meaning": "Control Plane-derived Provider statistics."},
+    {"identifier": "provider.capabilities@1", "surfaces": ["stateforge.ui/surface.provider.overview@1"], "data_shape": "array", "meaning": "Declared Provider operations and triggers, filtered by Control Plane policy."},
+    {"identifier": "operation.input_schema@1", "surfaces": ["stateforge.ui/surface.operation.request@1"], "data_shape": "object", "meaning": "Authoritative operational JSON Schema for the requested operation."},
+    {"identifier": "operation.request_context@1", "surfaces": ["stateforge.ui/surface.operation.request@1"], "data_shape": "object", "meaning": "Control Plane-approved request context; raw secret-bearing request values are not exposed as a presentation source."},
+    {"identifier": "operation.run@1", "surfaces": ["stateforge.ui/surface.operation.run@1"], "data_shape": "object", "meaning": "Current operation status, progress, and non-secret runtime observations."},
+    {"identifier": "operation.result@1", "surfaces": ["stateforge.ui/surface.operation.result@1"], "data_shape": "object", "meaning": "Validated terminal result and output references."},
+    {"identifier": "trigger.declaration@1", "surfaces": ["stateforge.ui/surface.trigger.policy@1"], "data_shape": "object", "meaning": "Accepted trigger declaration and payload schema."},
+    {"identifier": "trigger.policy@1", "surfaces": ["stateforge.ui/surface.trigger.policy@1"], "data_shape": "object", "meaning": "Control Plane-owned policy configuration for the selected trigger."},
+    {"identifier": "trigger.event@1", "surfaces": ["stateforge.ui/surface.trigger.event@1"], "data_shape": "object", "meaning": "One accepted trigger publication and its validated payload."},
+    {"identifier": "evidence.record@1", "surfaces": ["stateforge.ui/surface.evidence@1"], "data_shape": "object", "meaning": "Control Plane-selected audit evidence for one operation or trigger."}
+  ]
+}

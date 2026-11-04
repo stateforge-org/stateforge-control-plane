@@ -1,0 +1,29 @@
+{
+  "identifier": "stateforge.ui/action.operation_cancel@1",
+  "catalog_status": "proposed",
+  "purpose": "Request placement of the host-controlled cancellation action.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.operation.run@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "binding_slots": [],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {},
+    "bindings": {}
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "identifier": "stateforge.ui/status.progress@1",
+  "catalog_status": "proposed",
+  "purpose": "Determinate or staged progress.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.operation.run@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "showPercentage": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "progress",
+      "data_shape": "number or progress object",
+      "sources": [
+        "operation.run@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "showPercentage": true
+    },
+    "bindings": {
+      "progress": {
+        "source_identifier": "operation.run@1",
+        "pointer": "/progress"
+      }
+    }
+  }
+}

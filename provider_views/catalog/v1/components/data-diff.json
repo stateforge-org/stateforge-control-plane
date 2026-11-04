@@ -1,0 +1,78 @@
+{
+  "identifier": "stateforge.ui/data.diff@1",
+  "catalog_status": "proposed",
+  "purpose": "Before/after or proposed/current differences.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.operation.run@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "beforeLabel": {
+        "type": "string",
+        "maxLength": 100
+      },
+      "afterLabel": {
+        "type": "string",
+        "maxLength": 100
+      },
+      "format": {
+        "type": "string",
+        "enum": [
+          "text",
+          "json",
+          "yaml"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "before",
+      "data_shape": "JSON value",
+      "sources": [
+        "operation.result@1",
+        "evidence.record@1"
+      ]
+    },
+    {
+      "name": "after",
+      "data_shape": "JSON value",
+      "sources": [
+        "operation.result@1",
+        "evidence.record@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "beforeLabel": "Before",
+      "afterLabel": "After",
+      "format": "json"
+    },
+    "bindings": {
+      "before": {
+        "source_identifier": "operation.result@1",
+        "pointer": "/before"
+      },
+      "after": {
+        "source_identifier": "operation.result@1",
+        "pointer": "/after"
+      }
+    }
+  }
+}

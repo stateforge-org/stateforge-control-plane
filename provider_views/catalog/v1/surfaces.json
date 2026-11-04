@@ -1,0 +1,40 @@
+{
+  "catalog_version": 1,
+  "surfaces": [
+    {
+      "identifier": "stateforge.ui/surface.provider.overview@1",
+      "purpose": "Provider identity, description, health, statistics, assets, and capability navigation.",
+      "bindings": ["provider.descriptor@1", "provider.health@1", "provider.statistics@1", "provider.capabilities@1"]
+    },
+    {
+      "identifier": "stateforge.ui/surface.operation.request@1",
+      "purpose": "Configure and review an operation request.",
+      "bindings": ["operation.input_schema@1", "operation.request_context@1"]
+    },
+    {
+      "identifier": "stateforge.ui/surface.operation.run@1",
+      "purpose": "Follow an admitted operation's current state and progress.",
+      "bindings": ["operation.run@1"]
+    },
+    {
+      "identifier": "stateforge.ui/surface.operation.result@1",
+      "purpose": "Present terminal results, outputs, references, and artifacts.",
+      "bindings": ["operation.result@1"]
+    },
+    {
+      "identifier": "stateforge.ui/surface.trigger.policy@1",
+      "purpose": "Present a trigger while it is selected and configured in policy.",
+      "bindings": ["trigger.declaration@1", "trigger.policy@1"]
+    },
+    {
+      "identifier": "stateforge.ui/surface.trigger.event@1",
+      "purpose": "Present one published trigger occurrence.",
+      "bindings": ["trigger.event@1"]
+    },
+    {
+      "identifier": "stateforge.ui/surface.evidence@1",
+      "purpose": "Present structured evidence and audit material associated with an operation or trigger.",
+      "bindings": ["evidence.record@1"]
+    }
+  ]
+}

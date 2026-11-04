@@ -1,0 +1,36 @@
+{
+  "catalog_version": 1,
+  "status": "proposed",
+  "decisions": [
+    {
+      "id": "binding-sources",
+      "proposal": "Use only the versioned, surface-scoped binding sources declared in binding-sources.json. Sources are host-provided snapshots; Provider-authored views cannot cross surfaces, executions, or sessions, and raw operation request values are excluded.",
+      "rationale": "Keeps binding authority and sensitive request handling in the Control Plane while giving each surface a small, typed input set."
+    },
+    {
+      "id": "conditions-and-repetition",
+      "proposal": "Use the four SFP v1 condition operators EXISTS, NOT_EXISTS, EQUALS, and NOT_EQUALS. Repetition uses a named item scope and is capped at the SFP v1 maximum of 1024 items; renderers may impose lower limits.",
+      "rationale": "Matches the current generic SFP contract and avoids a second, incompatible expression language."
+    },
+    {
+      "id": "component-property-schemas",
+      "proposal": "Give every core component a closed JSON Schema for presentation-only properties. Keep operational fields, requiredness, authorization, and execution semantics exclusively in the operational schema and host policy.",
+      "rationale": "Lets the Control Plane validate and render without allowing presentation metadata to redefine a Provider capability."
+    },
+    {
+      "id": "evidence-surface",
+      "proposal": "Keep one shared stateforge.ui/surface.evidence@1 surface for operation and trigger evidence; the host supplies the evidence record kind and data.",
+      "rationale": "The catalog already names one evidence surface and the component set is shared."
+    },
+    {
+      "id": "host-actions",
+      "proposal": "Treat operation_submit and operation_cancel as requests to place host-controlled UI actions only. They cannot execute Provider code or grant permission; authorization, availability, confirmation, label, and visibility remain Control Plane decisions.",
+      "rationale": "Preserves the trust boundary stated in the catalog."
+    },
+    {
+      "id": "reference-corpus",
+      "proposal": "Use all seven catalog corpus examples as illustrative Control Plane fixtures, not normative SFP conformance requirements.",
+      "rationale": "Exercises materially different data shapes without making Protocol own product-specific Provider examples."
+    }
+  ]
+}

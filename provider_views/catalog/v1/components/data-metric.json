@@ -1,0 +1,68 @@
+{
+  "identifier": "stateforge.ui/data.metric@1",
+  "catalog_status": "proposed",
+  "purpose": "One important numeric measurement.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.provider.overview@1",
+    "stateforge.ui/surface.operation.run@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.trigger.event@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "maxLength": 100
+      },
+      "unit": {
+        "type": "string",
+        "maxLength": 40
+      },
+      "precision": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 6
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "value",
+      "data_shape": "number or metric object",
+      "sources": [
+        "provider.statistics@1",
+        "operation.run@1",
+        "operation.result@1",
+        "trigger.event@1",
+        "evidence.record@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "label": "Requests",
+      "unit": "count",
+      "precision": 0
+    },
+    "bindings": {
+      "value": {
+        "source_identifier": "provider.statistics@1",
+        "pointer": ""
+      }
+    }
+  }
+}
