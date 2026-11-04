@@ -1,0 +1,62 @@
+{
+  "identifier": "stateforge.ui/content.markdown@1",
+  "catalog_status": "proposed",
+  "purpose": "Sanitized restricted Markdown.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.provider.overview@1",
+    "stateforge.ui/surface.operation.request@1",
+    "stateforge.ui/surface.operation.run@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.trigger.policy@1",
+    "stateforge.ui/surface.trigger.event@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "markdown": {
+        "type": "string",
+        "maxLength": 16000
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "markdown",
+      "data_shape": "string",
+      "sources": [
+        "provider.descriptor@1",
+        "provider.health@1",
+        "provider.statistics@1",
+        "provider.capabilities@1",
+        "operation.run@1",
+        "operation.result@1",
+        "trigger.event@1",
+        "evidence.record@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "markdown": "## Status"
+    },
+    "bindings": {
+      "markdown": {
+        "source_identifier": "provider.descriptor@1",
+        "pointer": "/description"
+      }
+    }
+  }
+}

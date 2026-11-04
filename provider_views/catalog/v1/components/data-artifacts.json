@@ -1,0 +1,52 @@
+{
+  "identifier": "stateforge.ui/data.artifacts@1",
+  "catalog_status": "proposed",
+  "purpose": "Results, checkpoints, evidence, and references.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "compact": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "artifacts",
+      "data_shape": "array of artifact references",
+      "sources": [
+        "operation.result@1",
+        "evidence.record@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": [
+      "stateforge.ui/data.table@1"
+    ]
+  },
+  "example": {
+    "properties": {
+      "compact": false
+    },
+    "bindings": {
+      "artifacts": {
+        "source_identifier": "operation.result@1",
+        "pointer": "/artifacts"
+      }
+    }
+  }
+}

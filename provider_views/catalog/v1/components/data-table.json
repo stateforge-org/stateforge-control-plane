@@ -1,0 +1,86 @@
+{
+  "identifier": "stateforge.ui/data.table@1",
+  "catalog_status": "proposed",
+  "purpose": "Repeated objects or records.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.provider.overview@1",
+    "stateforge.ui/surface.operation.run@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.trigger.event@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "caption": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "columns": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "maxLength": 128
+            },
+            "label": {
+              "type": "string",
+              "maxLength": 128
+            }
+          },
+          "required": [
+            "key",
+            "label"
+          ],
+          "additionalProperties": false
+        },
+        "maxItems": 32
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "rows",
+      "data_shape": "array of objects",
+      "sources": [
+        "provider.capabilities@1",
+        "provider.statistics@1",
+        "operation.run@1",
+        "operation.result@1",
+        "trigger.event@1",
+        "evidence.record@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "caption": "Recent events",
+      "columns": [
+        {
+          "key": "name",
+          "label": "Name"
+        }
+      ]
+    },
+    "bindings": {
+      "rows": {
+        "source_identifier": "provider.capabilities@1",
+        "pointer": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "reviews": {
+    "component:stateforge.ui/action.operation_cancel@1": {
+      "content_digest": "444dd271fa8a4e9251b89c3b8955b4870876d41e1411dc9e811ea83db2188b7d",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:07+00:00"
+    },
+    "component:stateforge.ui/action.operation_submit@1": {
+      "content_digest": "51a1b2160ab32abb8c726a8e112d186836b7552b40afd6a090dcfea6951d7241",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:09+00:00"
+    },
+    "component:stateforge.ui/content.markdown@1": {
+      "content_digest": "2fde33be188fc3217243b0471111b406b569a3eaca6497bf557584d396f854f8",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:11+00:00"
+    },
+    "component:stateforge.ui/content.text@1": {
+      "content_digest": "5a400b97b8c83c6c5bb14df33a0e96d581e41d28256ad6b4266e3fc11fa4026f",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:13+00:00"
+    },
+    "component:stateforge.ui/data.artifacts@1": {
+      "content_digest": "97c2dd594200f0dfacb07635f4066347f6e3503368dc8bd9656ebc3b8ea2fd13",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:14+00:00"
+    },
+    "component:stateforge.ui/data.chart@1": {
+      "content_digest": "29b5e9f09153b8cc4534a03a0cbf992bd2e9c5cd0193f9b16a0928a77091cded",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:16+00:00"
+    },
+    "component:stateforge.ui/data.code@1": {
+      "content_digest": "1fd660b691ac2a54509ba09ef66c54b99f27e6c677ef7cbc4dd1caeb6d04c858",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:19+00:00"
+    },
+    "component:stateforge.ui/data.diff@1": {
+      "content_digest": "b73bb647a8b67d011ca43271d50516886a4b2abf3daf0aaf474221355ae0452e",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:22+00:00"
+    },
+    "component:stateforge.ui/data.key_value@1": {
+      "content_digest": "7d1fba8d782f0763c09dc0ff10db1ebafc41a5a138464c7aa4552c9ea697ad82",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:21:24+00:00"
+    },
+    "component:stateforge.ui/data.log@1": {
+      "content_digest": "3ee3b3572d45539ebdc6cec098ed4f24b880019b437b73e198f43d950a99ff38",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:22:43+00:00"
+    },
+    "component:stateforge.ui/data.metric@1": {
+      "content_digest": "5d211a8d93bc602b7a6831533abe3440a8bc92305e1b89691353572ca591a275",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:22:48+00:00"
+    },
+    "component:stateforge.ui/data.table@1": {
+      "content_digest": "e5598eeb8d8b75869dcd41184ad1dc6d3d4c3cf08fa59f8de468405d695e78cc",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:22:51+00:00"
+    },
+    "component:stateforge.ui/data.topology@1": {
+      "content_digest": "4bdf1e94d1b80264d221b37f3ab7d4cc7bb214c151f0f292ffbf297c58927439",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:27+00:00"
+    },
+    "component:stateforge.ui/data.tree@1": {
+      "content_digest": "fd001cd1dd148e87479a2a5fa8c769404d80ab2456274f62e9c0c014ad30bef5",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:30+00:00"
+    },
+    "component:stateforge.ui/input.array@1": {
+      "content_digest": "85f37078d63bcb78a28aafa43bd9ee9e87caa52a9a261c6cf0e7ef48da0d6fb4",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:41+00:00"
+    },
+    "component:stateforge.ui/input.code@1": {
+      "content_digest": "79f4d977d6e054a1822c1ae1fb8f7f15c97b257b766210949c71b06b9eecf4e9",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:43+00:00"
+    },
+    "component:stateforge.ui/input.field@1": {
+      "content_digest": "28fa52f9480dc5d81178959a15797e6eae83c528fc582b17084ae5cb88052c23",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:40+00:00"
+    },
+    "component:stateforge.ui/input.form@1": {
+      "content_digest": "02406c6654c9eded6fae8a86ce593db5c32d9c8b67832f11d67b747775b99498",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:37+00:00"
+    },
+    "component:stateforge.ui/input.key_value@1": {
+      "content_digest": "f9ec22ab4cdad760b71feff182ef70338e349c4b09e07863c96831fcccf3a444",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:33+00:00"
+    },
+    "component:stateforge.ui/input.object@1": {
+      "content_digest": "8b63b2886b2de412393b66f57b27f4954e236e3ae4d9b6a005068a012dc60165",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:20+00:00"
+    },
+    "component:stateforge.ui/input.secret@1": {
+      "content_digest": "38b16bf57b8973b60d84d808f797bd4fb1c94f22612bff2f3f8fbc8cd724800e",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:13+00:00"
+    },
+    "component:stateforge.ui/layout.grid@1": {
+      "content_digest": "afcd17e2901f342b2025d2164ed1533131d4f453bd332ec94285a767fb6d1723",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:10+00:00"
+    },
+    "component:stateforge.ui/layout.section@1": {
+      "content_digest": "8f885b00a8cf92ffae5e2a858058d580144593a31482e82af574b2f24b425346",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:24:02+00:00"
+    },
+    "component:stateforge.ui/layout.stack@1": {
+      "content_digest": "002d28203eb4371b9de44592d8aa5a5f6a0f6a64863363f971952e23fad3f788",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:56+00:00"
+    },
+    "component:stateforge.ui/layout.steps@1": {
+      "content_digest": "3608f702aed3ec91d610d1183069907c8dd6fbb99919009bc7af0626d0ecd2c4",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:51+00:00"
+    },
+    "component:stateforge.ui/layout.tabs@1": {
+      "content_digest": "e08733667ebf4e2a63e1b229df054588013d309ed3e473b996c0e7de230eca5a",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:47+00:00"
+    },
+    "component:stateforge.ui/media.image@1": {
+      "content_digest": "4f96cee0d11e8b8e649b25d1809d7d447c5b561a27b0798ff23bd8b711a0e19c",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:43+00:00"
+    },
+    "component:stateforge.ui/status.badge@1": {
+      "content_digest": "281d502050c9457c32a6539ba4e830ede4404eadc63f98f5924e3bc2aea403dd",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:40+00:00"
+    },
+    "component:stateforge.ui/status.progress@1": {
+      "content_digest": "f399030264be5489e1d57c7fa5853342f16417711bdc7a52afcf8e27588d1606",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:36+00:00"
+    },
+    "component:stateforge.ui/status.timeline@1": {
+      "content_digest": "66530bcbabcc3f29afd1d5a7a157f1c399d67076aa965a08335e83c11a31774c",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:33+00:00"
+    },
+    "decision:binding-sources": {
+      "content_digest": "15333fed76fc4ea9bfbb58b3dd7b509473cf22ca9261e792e650c09af1264afc",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:29+00:00"
+    },
+    "decision:component-property-schemas": {
+      "content_digest": "f7ae1521e7e27938abc81d49c69f7afc6cae9d2b086afea669d3e6836b17bfc2",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:26+00:00"
+    },
+    "decision:conditions-and-repetition": {
+      "content_digest": "8bbeda983e6070d03d631185039f5132a544b14317c1632980b73051659f4418",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:23+00:00"
+    },
+    "decision:evidence-surface": {
+      "content_digest": "8553593c78a87b27f3f64e6d5d5beadc7f15caa2acfc5f50a13e5839567da04a",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:19+00:00"
+    },
+    "decision:host-actions": {
+      "content_digest": "ae3db8df79a62d4678856fa271697bf7d8307823db2caa1f742223a35468373d",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:15+00:00"
+    },
+    "decision:reference-corpus": {
+      "content_digest": "b1eabf90925901f4fb941d8c0f3d0db3113dd58f01ffd74f6f7ecf77f219b316",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:11+00:00"
+    },
+    "file:binding-sources.json": {
+      "content_digest": "9ceaa6a960fc49c455ed32fb46b1a811545a72923e7c99eebb8bfe0102d321c1",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:08+00:00"
+    },
+    "file:compatibility.json": {
+      "content_digest": "ed3e2b1c31b1c3be58fa348cd046b36a8bc4d3c62a97017a1130266803137ae8",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:05+00:00"
+    },
+    "file:reference-corpus.json": {
+      "content_digest": "e2a35dc5accae93b50f32d1bf1bb69271a49bff3d63acfc1d0d741f870550cb4",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:23:02+00:00"
+    },
+    "file:renderer-registry.json": {
+      "content_digest": "9f3daa6698915668a14fa57960275ee089484af6aa0dc6fb970f0896855ff0f0",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:22:59+00:00"
+    },
+    "file:surfaces.json": {
+      "content_digest": "d099063816fb3249b56cbaea6cc936e2d64e0d48daf736d73b8f509b0a4500c7",
+      "decision": "approved",
+      "rationale": "",
+      "reviewed_at": "2026-11-04T14:22:55+00:00"
+    }
+  },
+  "schema_version": 1
+}

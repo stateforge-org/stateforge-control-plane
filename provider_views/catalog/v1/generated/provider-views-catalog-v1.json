@@ -1,0 +1,2291 @@
+{
+  "binding_sources": [
+    {
+      "data_shape": "object",
+      "identifier": "provider.descriptor@1",
+      "meaning": "Accepted Provider identity and descriptive manifest data; never executable configuration.",
+      "surfaces": [
+        "stateforge.ui/surface.provider.overview@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "provider.health@1",
+      "meaning": "Current StateForge health observation.",
+      "surfaces": [
+        "stateforge.ui/surface.provider.overview@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "provider.statistics@1",
+      "meaning": "Control Plane-derived Provider statistics.",
+      "surfaces": [
+        "stateforge.ui/surface.provider.overview@1"
+      ]
+    },
+    {
+      "data_shape": "array",
+      "identifier": "provider.capabilities@1",
+      "meaning": "Declared Provider operations and triggers, filtered by Control Plane policy.",
+      "surfaces": [
+        "stateforge.ui/surface.provider.overview@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "operation.input_schema@1",
+      "meaning": "Authoritative operational JSON Schema for the requested operation.",
+      "surfaces": [
+        "stateforge.ui/surface.operation.request@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "operation.request_context@1",
+      "meaning": "Control Plane-approved request context; raw secret-bearing request values are not exposed as a presentation source.",
+      "surfaces": [
+        "stateforge.ui/surface.operation.request@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "operation.run@1",
+      "meaning": "Current operation status, progress, and non-secret runtime observations.",
+      "surfaces": [
+        "stateforge.ui/surface.operation.run@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "operation.result@1",
+      "meaning": "Validated terminal result and output references.",
+      "surfaces": [
+        "stateforge.ui/surface.operation.result@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "trigger.declaration@1",
+      "meaning": "Accepted trigger declaration and payload schema.",
+      "surfaces": [
+        "stateforge.ui/surface.trigger.policy@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "trigger.policy@1",
+      "meaning": "Control Plane-owned policy configuration for the selected trigger.",
+      "surfaces": [
+        "stateforge.ui/surface.trigger.policy@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "trigger.event@1",
+      "meaning": "One accepted trigger publication and its validated payload.",
+      "surfaces": [
+        "stateforge.ui/surface.trigger.event@1"
+      ]
+    },
+    {
+      "data_shape": "object",
+      "identifier": "evidence.record@1",
+      "meaning": "Control Plane-selected audit evidence for one operation or trigger.",
+      "surfaces": [
+        "stateforge.ui/surface.evidence@1"
+      ]
+    }
+  ],
+  "catalog_version": 1,
+  "compatibility": {
+    "catalog_version": 1,
+    "initial_meaning_baseline": [
+      {
+        "identifier": "stateforge.ui/action.operation_cancel@1",
+        "meaning": "Request placement of the host-controlled cancellation action."
+      },
+      {
+        "identifier": "stateforge.ui/action.operation_submit@1",
+        "meaning": "Request placement of the host-controlled admission action."
+      },
+      {
+        "identifier": "stateforge.ui/content.markdown@1",
+        "meaning": "Sanitized restricted Markdown."
+      },
+      {
+        "identifier": "stateforge.ui/content.text@1",
+        "meaning": "Plain trusted text."
+      },
+      {
+        "identifier": "stateforge.ui/data.artifacts@1",
+        "meaning": "Results, checkpoints, evidence, and references."
+      },
+      {
+        "identifier": "stateforge.ui/data.chart@1",
+        "meaning": "Line, area, bar, or scatter series."
+      },
+      {
+        "identifier": "stateforge.ui/data.code@1",
+        "meaning": "Read-only code or structured text."
+      },
+      {
+        "identifier": "stateforge.ui/data.diff@1",
+        "meaning": "Before/after or proposed/current differences."
+      },
+      {
+        "identifier": "stateforge.ui/data.key_value@1",
+        "meaning": "Labels and scalar values."
+      },
+      {
+        "identifier": "stateforge.ui/data.log@1",
+        "meaning": "Bounded streaming or retained log output."
+      },
+      {
+        "identifier": "stateforge.ui/data.metric@1",
+        "meaning": "One important numeric measurement."
+      },
+      {
+        "identifier": "stateforge.ui/data.table@1",
+        "meaning": "Repeated objects or records."
+      },
+      {
+        "identifier": "stateforge.ui/data.topology@1",
+        "meaning": "Nodes and relationships."
+      },
+      {
+        "identifier": "stateforge.ui/data.tree@1",
+        "meaning": "Nested structured data."
+      },
+      {
+        "identifier": "stateforge.ui/input.array@1",
+        "meaning": "Repeated structured values."
+      },
+      {
+        "identifier": "stateforge.ui/input.code@1",
+        "meaning": "Structured text, JSON, YAML, or expression editor."
+      },
+      {
+        "identifier": "stateforge.ui/input.field@1",
+        "meaning": "Schema-compatible scalar control."
+      },
+      {
+        "identifier": "stateforge.ui/input.form@1",
+        "meaning": "Complete schema-generated form."
+      },
+      {
+        "identifier": "stateforge.ui/input.key_value@1",
+        "meaning": "Arbitrary property-map editor."
+      },
+      {
+        "identifier": "stateforge.ui/input.object@1",
+        "meaning": "Nested object editor."
+      },
+      {
+        "identifier": "stateforge.ui/input.secret@1",
+        "meaning": "A writeOnly secret value."
+      },
+      {
+        "identifier": "stateforge.ui/layout.grid@1",
+        "meaning": "Responsive grid."
+      },
+      {
+        "identifier": "stateforge.ui/layout.section@1",
+        "meaning": "Titled, optionally collapsible section."
+      },
+      {
+        "identifier": "stateforge.ui/layout.stack@1",
+        "meaning": "Vertical or horizontal content flow."
+      },
+      {
+        "identifier": "stateforge.ui/layout.steps@1",
+        "meaning": "Ordered stages or procedures."
+      },
+      {
+        "identifier": "stateforge.ui/layout.tabs@1",
+        "meaning": "Alternate related representations."
+      },
+      {
+        "identifier": "stateforge.ui/media.image@1",
+        "meaning": "Content-addressed PNG or sanitized SVG."
+      },
+      {
+        "identifier": "stateforge.ui/status.badge@1",
+        "meaning": "Compact semantic state."
+      },
+      {
+        "identifier": "stateforge.ui/status.progress@1",
+        "meaning": "Determinate or staged progress."
+      },
+      {
+        "identifier": "stateforge.ui/status.timeline@1",
+        "meaning": "Ordered events, conditions, or checkpoints."
+      }
+    ],
+    "policy": {
+      "canonical_source": "Each accepted catalog release preserves a snapshot of these meanings and a generated versioned artifact for comparison.",
+      "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major.",
+      "meaning_change": "Do not change the meaning of an existing versioned identifier. Introduce a new major identifier and retain the old descriptor when meaning changes."
+    },
+    "status": "proposed"
+  },
+  "components": [
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.run@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {},
+        "properties": {}
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/action.operation_cancel@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "purpose": "Request placement of the host-controlled cancellation action."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {},
+        "properties": {}
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/action.operation_submit@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "purpose": "Request placement of the host-controlled admission action."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "string",
+          "name": "markdown",
+          "sources": [
+            "provider.descriptor@1",
+            "provider.health@1",
+            "provider.statistics@1",
+            "provider.capabilities@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "markdown": {
+            "pointer": "/description",
+            "source_identifier": "provider.descriptor@1"
+          }
+        },
+        "properties": {
+          "markdown": "## Status"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/content.markdown@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "markdown": {
+            "maxLength": 16000,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Sanitized restricted Markdown."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "string",
+          "name": "text",
+          "sources": [
+            "provider.descriptor@1",
+            "provider.health@1",
+            "provider.statistics@1",
+            "provider.capabilities@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "text": {
+            "pointer": "/displayName",
+            "source_identifier": "provider.descriptor@1"
+          }
+        },
+        "properties": {
+          "text": "Provider ready",
+          "tone": "neutral"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/content.text@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "maxLength": 4000,
+            "type": "string"
+          },
+          "tone": {
+            "enum": [
+              "neutral",
+              "muted",
+              "accent"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Plain trusted text."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "array of artifact references",
+          "name": "artifacts",
+          "sources": [
+            "operation.result@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "artifacts": {
+            "pointer": "/artifacts",
+            "source_identifier": "operation.result@1"
+          }
+        },
+        "properties": {
+          "compact": false
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": [
+          "stateforge.ui/data.table@1"
+        ]
+      },
+      "identifier": "stateforge.ui/data.artifacts@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "compact": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Results, checkpoints, evidence, and references."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "array of series or points",
+          "name": "series",
+          "sources": [
+            "provider.statistics@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "series": {
+            "pointer": "/series",
+            "source_identifier": "provider.statistics@1"
+          }
+        },
+        "properties": {
+          "kind": "line",
+          "xLabel": "Time",
+          "yLabel": "Value"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": [
+          "stateforge.ui/data.table@1"
+        ]
+      },
+      "identifier": "stateforge.ui/data.chart@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "line",
+              "area",
+              "bar",
+              "scatter"
+            ],
+            "type": "string"
+          },
+          "xLabel": {
+            "maxLength": 80,
+            "type": "string"
+          },
+          "yLabel": {
+            "maxLength": 80,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Line, area, bar, or scatter series."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "string or JSON value",
+          "name": "value",
+          "sources": [
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "value": {
+            "pointer": "",
+            "source_identifier": "operation.result@1"
+          }
+        },
+        "properties": {
+          "language": "json",
+          "wrap": true
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.code@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "enum": [
+              "json",
+              "yaml",
+              "text",
+              "shell"
+            ],
+            "type": "string"
+          },
+          "wrap": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Read-only code or structured text."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON value",
+          "name": "before",
+          "sources": [
+            "operation.result@1",
+            "evidence.record@1"
+          ]
+        },
+        {
+          "data_shape": "JSON value",
+          "name": "after",
+          "sources": [
+            "operation.result@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "after": {
+            "pointer": "/after",
+            "source_identifier": "operation.result@1"
+          },
+          "before": {
+            "pointer": "/before",
+            "source_identifier": "operation.result@1"
+          }
+        },
+        "properties": {
+          "afterLabel": "After",
+          "beforeLabel": "Before",
+          "format": "json"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.diff@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "afterLabel": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "beforeLabel": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "format": {
+            "enum": [
+              "text",
+              "json",
+              "yaml"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Before/after or proposed/current differences."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "object or scalar map",
+          "name": "value",
+          "sources": [
+            "provider.descriptor@1",
+            "provider.health@1",
+            "provider.statistics@1",
+            "provider.capabilities@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "value": {
+            "pointer": "",
+            "source_identifier": "provider.descriptor@1"
+          }
+        },
+        "properties": {}
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.key_value@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Labels and scalar values."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "string or array of log records",
+          "name": "entries",
+          "sources": [
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "entries": {
+            "pointer": "/logs",
+            "source_identifier": "operation.run@1"
+          }
+        },
+        "properties": {
+          "autoFollow": false,
+          "maxLines": 200
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.log@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "autoFollow": {
+            "type": "boolean"
+          },
+          "maxLines": {
+            "maximum": 5000,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Bounded streaming or retained log output."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "number or metric object",
+          "name": "value",
+          "sources": [
+            "provider.statistics@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "value": {
+            "pointer": "",
+            "source_identifier": "provider.statistics@1"
+          }
+        },
+        "properties": {
+          "label": "Requests",
+          "precision": 0,
+          "unit": "count"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.metric@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "precision": {
+            "maximum": 6,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "unit": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "One important numeric measurement."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "array of objects",
+          "name": "rows",
+          "sources": [
+            "provider.capabilities@1",
+            "provider.statistics@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "rows": {
+            "pointer": "",
+            "source_identifier": "provider.capabilities@1"
+          }
+        },
+        "properties": {
+          "caption": "Recent events",
+          "columns": [
+            {
+              "key": "name",
+              "label": "Name"
+            }
+          ]
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.table@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "caption": {
+            "maxLength": 160,
+            "type": "string"
+          },
+          "columns": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "key": {
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "label": {
+                  "maxLength": 128,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "label"
+              ],
+              "type": "object"
+            },
+            "maxItems": 32,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Repeated objects or records."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "nodes-and-edges object",
+          "name": "graph",
+          "sources": [
+            "provider.statistics@1",
+            "provider.capabilities@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "graph": {
+            "pointer": "/topology",
+            "source_identifier": "provider.statistics@1"
+          }
+        },
+        "properties": {
+          "layout": "auto"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": [
+          "stateforge.ui/data.table@1"
+        ]
+      },
+      "identifier": "stateforge.ui/data.topology@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "layout": {
+            "enum": [
+              "auto",
+              "horizontal",
+              "vertical"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Nodes and relationships."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON object or array",
+          "name": "value",
+          "sources": [
+            "operation.request_context@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "value": {
+            "pointer": "",
+            "source_identifier": "operation.result@1"
+          }
+        },
+        "properties": {
+          "initialDepth": 2,
+          "label": "Resource"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/data.tree@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "initialDepth": {
+            "maximum": 16,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Nested structured data."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON Schema object",
+          "name": "schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input"
+        ],
+        "maximum_per_node": 256
+      },
+      "example": {
+        "bindings": {
+          "schema": {
+            "pointer": "/properties/interfaces",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "label": "Interfaces"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.array@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Repeated structured values."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON Schema object",
+          "name": "schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "schema": {
+            "pointer": "",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "language": "json",
+          "rows": 12
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.code@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          },
+          "language": {
+            "enum": [
+              "json",
+              "yaml",
+              "text",
+              "expression"
+            ],
+            "type": "string"
+          },
+          "rows": {
+            "maximum": 80,
+            "minimum": 3,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Structured text, JSON, YAML, or expression editor."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON Schema object",
+          "name": "field_schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "field_schema": {
+            "pointer": "/properties/name",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "widget": "auto"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.field@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          },
+          "placeholder": {
+            "maxLength": 160,
+            "type": "string"
+          },
+          "widget": {
+            "enum": [
+              "auto",
+              "text",
+              "textarea",
+              "number",
+              "checkbox",
+              "select",
+              "radio",
+              "slider",
+              "date-time"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Schema-compatible scalar control."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON Schema object",
+          "name": "schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input"
+        ],
+        "maximum_per_node": 256
+      },
+      "example": {
+        "bindings": {
+          "schema": {
+            "pointer": "",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "title": "Configure operation"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.form@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Complete schema-generated form."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON Schema object",
+          "name": "schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "schema": {
+            "pointer": "/properties/tags",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "label": "Tags"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.key_value@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Arbitrary property-map editor."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "JSON Schema object",
+          "name": "schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input"
+        ],
+        "maximum_per_node": 256
+      },
+      "example": {
+        "bindings": {
+          "schema": {
+            "pointer": "/properties/network",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "label": "Network settings"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.object@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Nested object editor."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.trigger.policy@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "writeOnly JSON Schema property",
+          "name": "field_schema",
+          "sources": [
+            "operation.input_schema@1",
+            "trigger.declaration@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "field_schema": {
+            "pointer": "/properties/credential",
+            "source_identifier": "operation.input_schema@1"
+          }
+        },
+        "properties": {
+          "label": "Credential"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/input.secret@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 160,
+            "type": "string"
+          },
+          "placeholder": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "A writeOnly secret value."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input",
+          "content",
+          "data",
+          "status",
+          "media",
+          "action"
+        ],
+        "maximum_per_node": 256
+      },
+      "example": {
+        "bindings": {},
+        "properties": {
+          "columns": 2
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/layout.grid@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "columns": {
+            "maximum": 12,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "gap": {
+            "enum": [
+              "small",
+              "medium",
+              "large"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Responsive grid."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input",
+          "content",
+          "data",
+          "status",
+          "media",
+          "action"
+        ],
+        "maximum_per_node": 256
+      },
+      "example": {
+        "bindings": {},
+        "properties": {
+          "collapsible": false,
+          "title": "Details"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/layout.section@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "collapsible": {
+            "type": "boolean"
+          },
+          "initiallyCollapsed": {
+            "type": "boolean"
+          },
+          "title": {
+            "maxLength": 160,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Titled, optionally collapsible section."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input",
+          "content",
+          "data",
+          "status",
+          "media",
+          "action"
+        ],
+        "maximum_per_node": 256
+      },
+      "example": {
+        "bindings": {},
+        "properties": {
+          "direction": "vertical"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/layout.stack@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "enum": [
+              "vertical",
+              "horizontal"
+            ],
+            "type": "string"
+          },
+          "gap": {
+            "enum": [
+              "none",
+              "small",
+              "medium",
+              "large"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Vertical or horizontal content flow."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input",
+          "content",
+          "data",
+          "status",
+          "media",
+          "action"
+        ],
+        "child_count_matches_property": "labels",
+        "maximum_per_node": 64
+      },
+      "example": {
+        "bindings": {},
+        "properties": {
+          "currentIndex": 0,
+          "labels": [
+            "Prepare",
+            "Apply"
+          ]
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/layout.steps@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "currentIndex": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "labels": {
+            "items": {
+              "maxLength": 80,
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Ordered stages or procedures."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.request@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": true,
+        "allowed_component_families": [
+          "layout",
+          "input",
+          "content",
+          "data",
+          "status",
+          "media",
+          "action"
+        ],
+        "child_count_matches_property": "labels",
+        "maximum_per_node": 16
+      },
+      "example": {
+        "bindings": {},
+        "properties": {
+          "labels": [
+            "Summary",
+            "Details"
+          ],
+          "selectedIndex": 0
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/layout.tabs@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "items": {
+              "maxLength": 80,
+              "type": "string"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "selectedIndex": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Alternate related representations."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.policy@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [
+        {
+          "media_types": [
+            "image/png",
+            "image/svg+xml"
+          ],
+          "name": "image"
+        }
+      ],
+      "binding_slots": [],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {},
+        "properties": {
+          "fit": "contain"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/media.image@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "caption": {
+            "maxLength": 160,
+            "type": "string"
+          },
+          "fit": {
+            "enum": [
+              "contain",
+              "cover"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Content-addressed PNG or sanitized SVG."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.provider.overview@1",
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "string or object",
+          "name": "state",
+          "sources": [
+            "provider.health@1",
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "state": {
+            "pointer": "",
+            "source_identifier": "provider.health@1"
+          }
+        },
+        "properties": {
+          "label": "Ready",
+          "tone": "success"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/status.badge@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tone": {
+            "enum": [
+              "neutral",
+              "info",
+              "success",
+              "warning",
+              "danger"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Compact semantic state."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.run@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "number or progress object",
+          "name": "progress",
+          "sources": [
+            "operation.run@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "progress": {
+            "pointer": "/progress",
+            "source_identifier": "operation.run@1"
+          }
+        },
+        "properties": {
+          "showPercentage": true
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/status.progress@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "showPercentage": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Determinate or staged progress."
+    },
+    {
+      "applicable_surfaces": [
+        "stateforge.ui/surface.operation.run@1",
+        "stateforge.ui/surface.operation.result@1",
+        "stateforge.ui/surface.trigger.event@1",
+        "stateforge.ui/surface.evidence@1"
+      ],
+      "asset_slots": [],
+      "binding_slots": [
+        {
+          "data_shape": "array of event objects",
+          "name": "events",
+          "sources": [
+            "operation.run@1",
+            "operation.result@1",
+            "trigger.event@1",
+            "evidence.record@1"
+          ]
+        }
+      ],
+      "catalog_status": "proposed",
+      "children": {
+        "allowed": false,
+        "allowed_component_identifiers": "none",
+        "maximum_per_node": 0
+      },
+      "example": {
+        "bindings": {
+          "events": {
+            "pointer": "/events",
+            "source_identifier": "operation.run@1"
+          }
+        },
+        "properties": {
+          "orientation": "vertical"
+        }
+      },
+      "fallback_guidance": {
+        "fallback_must_use_core_catalog": true,
+        "provider_may_supply": true,
+        "recommended_core_components": []
+      },
+      "identifier": "stateforge.ui/status.timeline@1",
+      "properties_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "orientation": {
+            "enum": [
+              "vertical",
+              "horizontal"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "purpose": "Ordered events, conditions, or checkpoints."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "binding-sources",
+      "proposal": "Use only the versioned, surface-scoped binding sources declared in binding-sources.json. Sources are host-provided snapshots; Provider-authored views cannot cross surfaces, executions, or sessions, and raw operation request values are excluded.",
+      "rationale": "Keeps binding authority and sensitive request handling in the Control Plane while giving each surface a small, typed input set."
+    },
+    {
+      "id": "conditions-and-repetition",
+      "proposal": "Use the four SFP v1 condition operators EXISTS, NOT_EXISTS, EQUALS, and NOT_EQUALS. Repetition uses a named item scope and is capped at the SFP v1 maximum of 1024 items; renderers may impose lower limits.",
+      "rationale": "Matches the current generic SFP contract and avoids a second, incompatible expression language."
+    },
+    {
+      "id": "component-property-schemas",
+      "proposal": "Give every core component a closed JSON Schema for presentation-only properties. Keep operational fields, requiredness, authorization, and execution semantics exclusively in the operational schema and host policy.",
+      "rationale": "Lets the Control Plane validate and render without allowing presentation metadata to redefine a Provider capability."
+    },
+    {
+      "id": "evidence-surface",
+      "proposal": "Keep one shared stateforge.ui/surface.evidence@1 surface for operation and trigger evidence; the host supplies the evidence record kind and data.",
+      "rationale": "The catalog already names one evidence surface and the component set is shared."
+    },
+    {
+      "id": "host-actions",
+      "proposal": "Treat operation_submit and operation_cancel as requests to place host-controlled UI actions only. They cannot execute Provider code or grant permission; authorization, availability, confirmation, label, and visibility remain Control Plane decisions.",
+      "rationale": "Preserves the trust boundary stated in the catalog."
+    },
+    {
+      "id": "reference-corpus",
+      "proposal": "Use all seven catalog corpus examples as illustrative Control Plane fixtures, not normative SFP conformance requirements.",
+      "rationale": "Exercises materially different data shapes without making Protocol own product-specific Provider examples."
+    }
+  ],
+  "ownership": "stateforge-control-plane",
+  "reference_corpus": {
+    "catalog_version": 1,
+    "examples": [
+      {
+        "component_identifiers": [
+          "stateforge.ui/input.form@1",
+          "stateforge.ui/input.object@1",
+          "stateforge.ui/input.array@1",
+          "stateforge.ui/input.key_value@1",
+          "stateforge.ui/data.table@1",
+          "stateforge.ui/data.artifacts@1"
+        ],
+        "contract_pressure": "Deep request objects, network interfaces, block devices, tags, mutually exclusive options, and results containing multiple instances.",
+        "identifiers": [
+          "instance.launch@1"
+        ],
+        "provider": "AWS EC2"
+      },
+      {
+        "component_identifiers": [
+          "stateforge.ui/input.code@1",
+          "stateforge.ui/data.diff@1",
+          "stateforge.ui/status.progress@1",
+          "stateforge.ui/status.timeline@1",
+          "stateforge.ui/data.metric@1",
+          "stateforge.ui/data.log@1",
+          "stateforge.ui/data.topology@1"
+        ],
+        "contract_pressure": "Large nested manifests, repeated configuration, resource diffs, rollout conditions, replica metrics, logs, and topology.",
+        "identifiers": [
+          "deployment.apply@1",
+          "deployment.degraded@1"
+        ],
+        "provider": "Kubernetes"
+      },
+      {
+        "component_identifiers": [
+          "stateforge.ui/input.field@1",
+          "stateforge.ui/input.object@1",
+          "stateforge.ui/input.array@1",
+          "stateforge.ui/status.progress@1",
+          "stateforge.ui/status.timeline@1",
+          "stateforge.ui/data.artifacts@1",
+          "stateforge.ui/data.log@1"
+        ],
+        "contract_pressure": "Mutually exclusive recovery targets, backup selection, tablespace mappings, staged progress, WAL evidence, and recovery timelines.",
+        "identifiers": [
+          "database.point_in_time_recover@1"
+        ],
+        "provider": "PostgreSQL"
+      },
+      {
+        "component_identifiers": [
+          "stateforge.ui/input.form@1",
+          "stateforge.ui/input.key_value@1",
+          "stateforge.ui/input.code@1",
+          "stateforge.ui/data.metric@1",
+          "stateforge.ui/data.chart@1",
+          "stateforge.ui/data.artifacts@1",
+          "stateforge.ui/media.image@1"
+        ],
+        "contract_pressure": "Arbitrary hyperparameters, datasets, distributed compute, time-series metrics, checkpoints, images, models, and downloadable artifacts.",
+        "identifiers": [
+          "training.start@1",
+          "training.metric_threshold@1"
+        ],
+        "provider": "Model training"
+      },
+      {
+        "component_identifiers": [
+          "stateforge.ui/input.array@1",
+          "stateforge.ui/input.code@1",
+          "stateforge.ui/data.diff@1",
+          "stateforge.ui/status.badge@1"
+        ],
+        "contract_pressure": "Ordered rules, nested logical expressions, a visual expression builder, validation results, and configuration diffs.",
+        "identifiers": [
+          "ruleset.deploy@1"
+        ],
+        "provider": "Cloudflare"
+      },
+      {
+        "component_identifiers": [
+          "stateforge.ui/data.tree@1",
+          "stateforge.ui/data.key_value@1",
+          "stateforge.ui/data.table@1",
+          "stateforge.ui/data.code@1"
+        ],
+        "contract_pressure": "A deeply nested event containing repository, actor, pull request, change, and delivery metadata.",
+        "identifiers": [
+          "pull_request.changed@1"
+        ],
+        "provider": "GitHub"
+      },
+      {
+        "component_identifiers": [
+          "stateforge.ui/input.field@1",
+          "stateforge.ui/status.progress@1",
+          "stateforge.ui/status.badge@1",
+          "stateforge.ui/data.log@1",
+          "stateforge.ui/status.timeline@1"
+        ],
+        "contract_pressure": "A simple baseline with one resource selector, short progress, status, journal output, and a small trigger payload.",
+        "identifiers": [
+          "service.restart@1",
+          "service.failed@1"
+        ],
+        "provider": "systemd"
+      }
+    ],
+    "normative_for_protocol": false,
+    "usage": "Illustrative Control Plane design and renderer-test fixtures. These cases are not SFP conformance requirements or claims that the Providers are implemented."
+  },
+  "renderer_registry": {
+    "catalog_version": 1,
+    "note": "Catalog membership is not renderer availability. Add an identifier here only when this Control Plane build actually registers and verifies its renderer.",
+    "status": "not_implemented",
+    "supported_component_identifiers": [],
+    "unsupported_component_identifiers": [
+      "stateforge.ui/action.operation_cancel@1",
+      "stateforge.ui/action.operation_submit@1",
+      "stateforge.ui/content.markdown@1",
+      "stateforge.ui/content.text@1",
+      "stateforge.ui/data.artifacts@1",
+      "stateforge.ui/data.chart@1",
+      "stateforge.ui/data.code@1",
+      "stateforge.ui/data.diff@1",
+      "stateforge.ui/data.key_value@1",
+      "stateforge.ui/data.log@1",
+      "stateforge.ui/data.metric@1",
+      "stateforge.ui/data.table@1",
+      "stateforge.ui/data.topology@1",
+      "stateforge.ui/data.tree@1",
+      "stateforge.ui/input.array@1",
+      "stateforge.ui/input.code@1",
+      "stateforge.ui/input.field@1",
+      "stateforge.ui/input.form@1",
+      "stateforge.ui/input.key_value@1",
+      "stateforge.ui/input.object@1",
+      "stateforge.ui/input.secret@1",
+      "stateforge.ui/layout.grid@1",
+      "stateforge.ui/layout.section@1",
+      "stateforge.ui/layout.stack@1",
+      "stateforge.ui/layout.steps@1",
+      "stateforge.ui/layout.tabs@1",
+      "stateforge.ui/media.image@1",
+      "stateforge.ui/status.badge@1",
+      "stateforge.ui/status.progress@1",
+      "stateforge.ui/status.timeline@1"
+    ]
+  },
+  "status": "proposed",
+  "surfaces": [
+    {
+      "bindings": [
+        "provider.descriptor@1",
+        "provider.health@1",
+        "provider.statistics@1",
+        "provider.capabilities@1"
+      ],
+      "identifier": "stateforge.ui/surface.provider.overview@1",
+      "purpose": "Provider identity, description, health, statistics, assets, and capability navigation."
+    },
+    {
+      "bindings": [
+        "operation.input_schema@1",
+        "operation.request_context@1"
+      ],
+      "identifier": "stateforge.ui/surface.operation.request@1",
+      "purpose": "Configure and review an operation request."
+    },
+    {
+      "bindings": [
+        "operation.run@1"
+      ],
+      "identifier": "stateforge.ui/surface.operation.run@1",
+      "purpose": "Follow an admitted operation's current state and progress."
+    },
+    {
+      "bindings": [
+        "operation.result@1"
+      ],
+      "identifier": "stateforge.ui/surface.operation.result@1",
+      "purpose": "Present terminal results, outputs, references, and artifacts."
+    },
+    {
+      "bindings": [
+        "trigger.declaration@1",
+        "trigger.policy@1"
+      ],
+      "identifier": "stateforge.ui/surface.trigger.policy@1",
+      "purpose": "Present a trigger while it is selected and configured in policy."
+    },
+    {
+      "bindings": [
+        "trigger.event@1"
+      ],
+      "identifier": "stateforge.ui/surface.trigger.event@1",
+      "purpose": "Present one published trigger occurrence."
+    },
+    {
+      "bindings": [
+        "evidence.record@1"
+      ],
+      "identifier": "stateforge.ui/surface.evidence@1",
+      "purpose": "Present structured evidence and audit material associated with an operation or trigger."
+    }
+  ]
+}

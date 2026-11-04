@@ -1,0 +1,6 @@
+{
+  "catalog_version": 1,
+  "status": "not_implemented",
+  "supported_component_identifiers": [],
+  "note": "Catalog membership is not renderer availability. Add an identifier here only when this Control Plane build actually registers and verifies its renderer."
+}

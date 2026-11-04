@@ -1,0 +1,113 @@
+{
+  "catalog_version": 1,
+  "normative_for_protocol": false,
+  "usage": "Illustrative Control Plane design and renderer-test fixtures. These cases are not SFP conformance requirements or claims that the Providers are implemented.",
+  "examples": [
+    {
+      "provider": "AWS EC2",
+      "identifiers": [
+        "instance.launch@1"
+      ],
+      "contract_pressure": "Deep request objects, network interfaces, block devices, tags, mutually exclusive options, and results containing multiple instances.",
+      "component_identifiers": [
+        "stateforge.ui/input.form@1",
+        "stateforge.ui/input.object@1",
+        "stateforge.ui/input.array@1",
+        "stateforge.ui/input.key_value@1",
+        "stateforge.ui/data.table@1",
+        "stateforge.ui/data.artifacts@1"
+      ]
+    },
+    {
+      "provider": "Kubernetes",
+      "identifiers": [
+        "deployment.apply@1",
+        "deployment.degraded@1"
+      ],
+      "contract_pressure": "Large nested manifests, repeated configuration, resource diffs, rollout conditions, replica metrics, logs, and topology.",
+      "component_identifiers": [
+        "stateforge.ui/input.code@1",
+        "stateforge.ui/data.diff@1",
+        "stateforge.ui/status.progress@1",
+        "stateforge.ui/status.timeline@1",
+        "stateforge.ui/data.metric@1",
+        "stateforge.ui/data.log@1",
+        "stateforge.ui/data.topology@1"
+      ]
+    },
+    {
+      "provider": "PostgreSQL",
+      "identifiers": [
+        "database.point_in_time_recover@1"
+      ],
+      "contract_pressure": "Mutually exclusive recovery targets, backup selection, tablespace mappings, staged progress, WAL evidence, and recovery timelines.",
+      "component_identifiers": [
+        "stateforge.ui/input.field@1",
+        "stateforge.ui/input.object@1",
+        "stateforge.ui/input.array@1",
+        "stateforge.ui/status.progress@1",
+        "stateforge.ui/status.timeline@1",
+        "stateforge.ui/data.artifacts@1",
+        "stateforge.ui/data.log@1"
+      ]
+    },
+    {
+      "provider": "Model training",
+      "identifiers": [
+        "training.start@1",
+        "training.metric_threshold@1"
+      ],
+      "contract_pressure": "Arbitrary hyperparameters, datasets, distributed compute, time-series metrics, checkpoints, images, models, and downloadable artifacts.",
+      "component_identifiers": [
+        "stateforge.ui/input.form@1",
+        "stateforge.ui/input.key_value@1",
+        "stateforge.ui/input.code@1",
+        "stateforge.ui/data.metric@1",
+        "stateforge.ui/data.chart@1",
+        "stateforge.ui/data.artifacts@1",
+        "stateforge.ui/media.image@1"
+      ]
+    },
+    {
+      "provider": "Cloudflare",
+      "identifiers": [
+        "ruleset.deploy@1"
+      ],
+      "contract_pressure": "Ordered rules, nested logical expressions, a visual expression builder, validation results, and configuration diffs.",
+      "component_identifiers": [
+        "stateforge.ui/input.array@1",
+        "stateforge.ui/input.code@1",
+        "stateforge.ui/data.diff@1",
+        "stateforge.ui/status.badge@1"
+      ]
+    },
+    {
+      "provider": "GitHub",
+      "identifiers": [
+        "pull_request.changed@1"
+      ],
+      "contract_pressure": "A deeply nested event containing repository, actor, pull request, change, and delivery metadata.",
+      "component_identifiers": [
+        "stateforge.ui/data.tree@1",
+        "stateforge.ui/data.key_value@1",
+        "stateforge.ui/data.table@1",
+        "stateforge.ui/data.code@1"
+      ]
+    },
+    {
+      "provider": "systemd",
+      "identifiers": [
+        "service.restart@1",
+        "service.failed@1"
+      ],
+      "contract_pressure": "A simple baseline with one resource selector, short progress, status, journal output, and a small trigger payload.",
+      "component_identifiers": [
+        "stateforge.ui/input.field@1",
+        "stateforge.ui/status.progress@1",
+        "stateforge.ui/status.badge@1",
+        "stateforge.ui/data.log@1",
+        "stateforge.ui/status.timeline@1"
+      ]
+    }
+  ]
+}

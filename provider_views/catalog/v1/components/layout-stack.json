@@ -1,0 +1,54 @@
+{
+  "identifier": "stateforge.ui/layout.stack@1",
+  "catalog_status": "proposed",
+  "purpose": "Vertical or horizontal content flow.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.provider.overview@1",
+    "stateforge.ui/surface.operation.request@1",
+    "stateforge.ui/surface.operation.run@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.trigger.policy@1",
+    "stateforge.ui/surface.trigger.event@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "direction": {
+        "type": "string",
+        "enum": [
+          "vertical",
+          "horizontal"
+        ]
+      },
+      "gap": {
+        "type": "string",
+        "enum": [
+          "none",
+          "small",
+          "medium",
+          "large"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [],
+  "asset_slots": [],
+  "children": {
+    "allowed": true,
+    "maximum_per_node": 256,
+    "allowed_component_families": ["layout", "input", "content", "data", "status", "media", "action"]
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "direction": "vertical"
+    },
+    "bindings": {}
+  }
+}

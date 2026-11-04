@@ -1,0 +1,58 @@
+{
+  "identifier": "stateforge.ui/status.timeline@1",
+  "catalog_status": "proposed",
+  "purpose": "Ordered events, conditions, or checkpoints.",
+  "applicable_surfaces": [
+    "stateforge.ui/surface.operation.run@1",
+    "stateforge.ui/surface.operation.result@1",
+    "stateforge.ui/surface.trigger.event@1",
+    "stateforge.ui/surface.evidence@1"
+  ],
+  "properties_schema": {
+    "type": "object",
+    "properties": {
+      "orientation": {
+        "type": "string",
+        "enum": [
+          "vertical",
+          "horizontal"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "binding_slots": [
+    {
+      "name": "events",
+      "data_shape": "array of event objects",
+      "sources": [
+        "operation.run@1",
+        "operation.result@1",
+        "trigger.event@1",
+        "evidence.record@1"
+      ]
+    }
+  ],
+  "asset_slots": [],
+  "children": {
+    "allowed": false,
+    "maximum_per_node": 0,
+    "allowed_component_identifiers": "none"
+  },
+  "fallback_guidance": {
+    "provider_may_supply": true,
+    "fallback_must_use_core_catalog": true,
+    "recommended_core_components": []
+  },
+  "example": {
+    "properties": {
+      "orientation": "vertical"
+    },
+    "bindings": {
+      "events": {
+        "source_identifier": "operation.run@1",
+        "pointer": "/events"
+      }
+    }
+  }
+}
