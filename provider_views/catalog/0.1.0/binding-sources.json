@@ -1,5 +1,4 @@
 {
-  "catalog_version": 1,
   "sources": [
     {"identifier": "provider.descriptor@1", "surfaces": ["stateforge.ui/surface.provider.overview@1"], "data_shape": "object", "meaning": "Accepted Provider identity and descriptive manifest data; never executable configuration."},
     {"identifier": "provider.health@1", "surfaces": ["stateforge.ui/surface.provider.overview@1"], "data_shape": "object", "meaning": "Current StateForge health observation."},

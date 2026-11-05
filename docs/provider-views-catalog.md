@@ -1,5 +1,7 @@
 # Provider Views catalog
 
+> Control Plane version: `0.1.0` · catalog SHA-256: `4c73605ff4518be3bf3ef12bedeb0ff72ff32fcb72261bfdbd46fa966683a09a`
+
 > Status: proposed. The entries define Control Plane contracts; they do not assert that every renderer is implemented or enabled.
 
 The Control Plane owns this catalog. Provider tooling may consume the generated JSON; Protocol transports the generic presentation tree and does not own this component registry.
@@ -1461,4 +1463,4 @@ These defaults are explicit proposals pending product review. Operational schema
 
 ## Compatibility
 
-An existing versioned identifier keeps its meaning. Meaning changes and incompatible property, binding, surface, asset-slot, child, or fallback changes require a new major identifier; retain the old descriptor. The initial purpose baseline is in `catalog/v1/compatibility.json`.
+An existing versioned identifier keeps its meaning. Meaning changes and incompatible property, binding, surface, asset-slot, child, or fallback changes require a new major identifier; retain the old descriptor. A destructive catalog change is released with a Control Plane major-version bump. The initial purpose baseline is in `provider_views/catalog/0.1.0/compatibility.json`.

@@ -1,4 +1,4 @@
-# Catalog v1 source
+# Provider Views catalog for Control Plane 0.1.0
 
 This directory is the editable source for the Control Plane-owned Provider
 Views catalog. Each core renderer registration has its own JSON file under
@@ -6,7 +6,7 @@ Views catalog. Each core renderer registration has its own JSON file under
 compatibility policy, and the non-normative workload corpus are kept as shared
 documents beside those definitions.
 
-Edit source files here. Do not edit `generated/provider-views-catalog-v1.json`
+Edit source files here. Do not edit `generated/provider-views-catalog-0.1.0.json`
 or `docs/provider-views-catalog.md` by hand; regenerate them with:
 
 ```sh

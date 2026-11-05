@@ -1,10 +1,9 @@
 {
-  "catalog_version": 1,
   "status": "proposed",
   "policy": {
     "meaning_change": "Do not change the meaning of an existing versioned identifier. Introduce a new major identifier and retain the old descriptor when meaning changes.",
-    "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major.",
-    "canonical_source": "Each accepted catalog release preserves a snapshot of these meanings and a generated versioned artifact for comparison."
+    "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major. A destructive catalog change also requires a Control Plane major-version bump.",
+    "canonical_source": "The catalog is part of the Control Plane release. Generated artifacts record the full Control Plane version and a digest of the catalog content; no independent catalog version is assigned."
   },
   "initial_meaning_baseline": [
     {

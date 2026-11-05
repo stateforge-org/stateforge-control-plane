@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import hashlib
 import importlib.util
+import json
+import re
 import unittest
 from pathlib import Path
 
@@ -22,27 +25,69 @@ class ProviderViewsCatalogTests(unittest.TestCase):
         self.assertEqual(30, len(catalog["components"]))
         self.assertEqual(7, len(catalog["reference_corpus"]["examples"]))
         self.assertFalse(catalog["reference_corpus"]["normative_for_protocol"])
-        self.assertEqual(catalog_tool.EXPECTED_COMPONENTS, {
-            component["identifier"] for component in catalog["components"]
-        })
+        self.assertEqual(
+            catalog_tool.EXPECTED_COMPONENTS,
+            {component["identifier"] for component in catalog["components"]},
+        )
 
     def test_catalog_membership_does_not_imply_renderer_availability(self) -> None:
         catalog = catalog_tool.load_and_validate()
 
         self.assertEqual("not_implemented", catalog["renderer_registry"]["status"])
-        self.assertEqual([], catalog["renderer_registry"]["supported_component_identifiers"])
+        self.assertEqual(
+            [], catalog["renderer_registry"]["supported_component_identifiers"]
+        )
         self.assertEqual(
             catalog_tool.EXPECTED_COMPONENTS,
             set(catalog["renderer_registry"]["unsupported_component_identifiers"]),
         )
 
+    def test_catalog_provenance_uses_the_full_control_plane_version(self) -> None:
+        catalog = catalog_tool.load_and_validate()
+
+        self.assertEqual("0.1.0", catalog["control_plane_version"])
+        self.assertNotIn("catalog_version", catalog)
+        self.assertRegex(catalog["catalog_sha256"], re.compile(r"^[0-9a-f]{64}$"))
+        catalog_content = {
+            key: value
+            for key, value in catalog.items()
+            if key not in {"control_plane_version", "catalog_sha256"}
+        }
+        canonical = json.dumps(
+            catalog_content,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        self.assertEqual(
+            hashlib.sha256(canonical).hexdigest(), catalog["catalog_sha256"]
+        )
+        self.assertEqual(
+            f"provider-views-catalog-{catalog['control_plane_version']}.json",
+            catalog_tool.CATALOG_ARTIFACT.name,
+        )
+
+    def test_catalog_sources_do_not_declare_an_independent_version(self) -> None:
+        for filename in (
+            "binding-sources.json",
+            "compatibility.json",
+            "decisions.json",
+            "reference-corpus.json",
+            "renderer-registry.json",
+            "surfaces.json",
+        ):
+            with self.subTest(filename=filename):
+                document = catalog_tool.read_json(catalog_tool.CATALOG / filename)
+                self.assertNotIn("catalog_version", document)
+
     def test_unresolved_design_choices_are_visible_as_proposals(self) -> None:
         catalog = catalog_tool.load_and_validate()
 
         self.assertEqual("proposed", catalog["status"])
-        self.assertEqual("proposed", catalog_tool.read_json(
-            catalog_tool.CATALOG / "decisions.json"
-        )["status"])
+        self.assertEqual(
+            "proposed",
+            catalog_tool.read_json(catalog_tool.CATALOG / "decisions.json")["status"],
+        )
         self.assertEqual(
             catalog_tool.EXPECTED_DECISIONS,
             {decision["id"] for decision in catalog["decisions"]},
@@ -56,7 +101,9 @@ class ProviderViewsCatalogTests(unittest.TestCase):
             catalog_tool.EXPECTED_COMPONENTS,
             {component["identifier"] for component in baseline},
         )
-        self.assertIn("new major identifier", catalog["compatibility"]["policy"]["meaning_change"])
+        self.assertIn(
+            "new major identifier", catalog["compatibility"]["policy"]["meaning_change"]
+        )
 
     def test_generated_docs_and_provider_artifact_are_reproducible(self) -> None:
         outputs = catalog_tool.expected_outputs(catalog_tool.load_and_validate())
