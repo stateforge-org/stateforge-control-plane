@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -11,10 +12,16 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "provider_views" / "catalog" / "v1"
+VERSION_FILE = ROOT / "VERSION"
+CONTROL_PLANE_VERSION = VERSION_FILE.read_text(encoding="utf-8").strip()
+VERSION_PATTERN = re.compile(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)")
+if VERSION_PATTERN.fullmatch(CONTROL_PLANE_VERSION) is None:
+    raise ValueError(f"invalid Control Plane version in {VERSION_FILE}")
+CATALOG = ROOT / "provider_views" / "catalog" / CONTROL_PLANE_VERSION
 COMPONENTS = CATALOG / "components"
 GENERATED = CATALOG / "generated"
 DOCS = ROOT / "docs" / "provider-views-catalog.md"
+CATALOG_ARTIFACT = GENERATED / f"provider-views-catalog-{CONTROL_PLANE_VERSION}.json"
 
 EXPECTED_COMPONENTS = {
     "stateforge.ui/layout.stack@1",
@@ -153,9 +160,7 @@ def _schema_errors(value: Any, schema: dict[str, Any], at: str) -> list[str]:
                 errors.append(f"{at}: unknown property {key}")
         for key, item in value.items():
             if key in properties:
-                errors.extend(
-                    _schema_errors(item, properties[key], f"{at}.{key}")
-                )
+                errors.extend(_schema_errors(item, properties[key], f"{at}.{key}"))
     return errors
 
 
@@ -235,7 +240,9 @@ def load_and_validate() -> dict[str, Any]:
     if len(components) != 30:
         errors.append(f"expected 30 component files, found {len(components)}")
     if reference_corpus_doc.get("normative_for_protocol") is not False:
-        errors.append("Control Plane reference corpus must not become Protocol conformance")
+        errors.append(
+            "Control Plane reference corpus must not become Protocol conformance"
+        )
     if len(reference_corpus_doc.get("examples", [])) != 7:
         errors.append("reference corpus must retain the seven catalog workloads")
 
@@ -244,10 +251,14 @@ def load_and_validate() -> dict[str, Any]:
         for item in compatibility_doc["initial_meaning_baseline"]
     }
     if set(meanings) != EXPECTED_COMPONENTS:
-        errors.append("compatibility meaning baseline does not cover all core identifiers")
+        errors.append(
+            "compatibility meaning baseline does not cover all core identifiers"
+        )
     for identifier, component in by_id.items():
         if not re.search(r"@[1-9][0-9]*$", identifier):
-            errors.append(f"{identifier}: component identifier must end in a positive major version")
+            errors.append(
+                f"{identifier}: component identifier must end in a positive major version"
+            )
         if identifier in meanings and component.get("purpose") != meanings[identifier]:
             errors.append(
                 f"{identifier}: meaning changed; introduce a new major identifier "
@@ -322,38 +333,53 @@ def load_and_validate() -> dict[str, Any]:
                 )
         for slot in component.get("asset_slots", []):
             if not slot.get("media_types"):
-                errors.append(f"{identifier}: asset slot {slot['name']} has no media types")
+                errors.append(
+                    f"{identifier}: asset slot {slot['name']} has no media types"
+                )
             if set(slot.get("media_types", [])) - ALLOWED_ASSET_MEDIA_TYPES:
-                errors.append(f"{identifier}: asset slot {slot['name']} has unsupported media type")
-        fallback_ids = component["fallback_guidance"][
-            "recommended_core_components"
-        ]
+                errors.append(
+                    f"{identifier}: asset slot {slot['name']} has unsupported media type"
+                )
+        fallback_ids = component["fallback_guidance"]["recommended_core_components"]
         if any(target not in by_id for target in fallback_ids):
             errors.append(f"{identifier}: fallback references unknown core component")
         if component.get("catalog_status") != "proposed":
-            errors.append(f"{identifier}: expected proposed status pending catalog review")
+            errors.append(
+                f"{identifier}: expected proposed status pending catalog review"
+            )
         child_rule = component.get("children", {})
         if child_rule.get("allowed"):
             families = set(child_rule.get("allowed_component_families", []))
             if not families or not families <= {
-                "layout", "input", "content", "data", "status", "media", "action"
+                "layout",
+                "input",
+                "content",
+                "data",
+                "status",
+                "media",
+                "action",
             }:
                 errors.append(f"{identifier}: invalid child component families")
             for family in families:
                 if not any(
-                    item_id.startswith(f"stateforge.ui/{family}.")
-                    for item_id in by_id
+                    item_id.startswith(f"stateforge.ui/{family}.") for item_id in by_id
                 ):
-                    errors.append(f"{identifier}: child family {family} has no catalog entries")
+                    errors.append(
+                        f"{identifier}: child family {family} has no catalog entries"
+                    )
             matched_property = child_rule.get("child_count_matches_property")
-            if matched_property and matched_property not in schema.get("properties", {}):
+            if matched_property and matched_property not in schema.get(
+                "properties", {}
+            ):
                 errors.append(f"{identifier}: child-count property is not declared")
         elif child_rule.get("maximum_per_node") != 0:
             errors.append(f"{identifier}: leaf component must have zero child capacity")
 
     for example in reference_corpus_doc.get("examples", []):
         if not example.get("identifiers"):
-            errors.append(f"{example.get('provider', '<unknown>')}: corpus identifiers are missing")
+            errors.append(
+                f"{example.get('provider', '<unknown>')}: corpus identifiers are missing"
+            )
         for component_id in example.get("component_identifiers", []):
             if component_id not in by_id:
                 errors.append(
@@ -363,7 +389,9 @@ def load_and_validate() -> dict[str, Any]:
 
     decision_ids = {decision["id"] for decision in decisions_doc["decisions"]}
     if decision_ids != EXPECTED_DECISIONS or decisions_doc.get("status") != "proposed":
-        errors.append("the six unresolved PDF decisions must remain explicitly proposed")
+        errors.append(
+            "the six unresolved PDF decisions must remain explicitly proposed"
+        )
     supported = registry.get("supported_component_identifiers", [])
     if any(identifier not in by_id for identifier in supported):
         errors.append("renderer registry references a component outside the catalog")
@@ -375,8 +403,7 @@ def load_and_validate() -> dict[str, Any]:
     registry_artifact["unsupported_component_identifiers"] = sorted(
         actual_ids - set(supported)
     )
-    return {
-        "catalog_version": 1,
+    catalog = {
         "ownership": "stateforge-control-plane",
         "status": "proposed",
         "surfaces": surfaces_doc["surfaces"],
@@ -387,11 +414,24 @@ def load_and_validate() -> dict[str, Any]:
         "reference_corpus": reference_corpus_doc,
         "renderer_registry": registry_artifact,
     }
+    canonical_catalog = json.dumps(
+        catalog,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return {
+        **catalog,
+        "control_plane_version": CONTROL_PLANE_VERSION,
+        "catalog_sha256": hashlib.sha256(canonical_catalog).hexdigest(),
+    }
 
 
 def render_reference(catalog: dict[str, Any]) -> str:
     lines = [
         "# Provider Views catalog",
+        "",
+        f"> Control Plane version: `{catalog['control_plane_version']}` · catalog SHA-256: `{catalog['catalog_sha256']}`",
         "",
         "> Status: proposed. The entries define Control Plane contracts; they do not assert that every renderer is implemented or enabled.",
         "",
@@ -455,9 +495,7 @@ def render_reference(catalog: dict[str, Any]) -> str:
             lines.append("None.")
         lines.extend(["", "**Binding slots**", ""])
         if component["binding_slots"]:
-            lines.extend(
-                ["| Slot | Expected shape | Sources |", "| --- | --- | --- |"]
-            )
+            lines.extend(["| Slot | Expected shape | Sources |", "| --- | --- | --- |"])
             for slot in component["binding_slots"]:
                 lines.append(
                     f"| `{slot['name']}` | {slot['data_shape']} | "
@@ -541,13 +579,18 @@ def render_reference(catalog: dict[str, Any]) -> str:
             "",
         ]
     )
-    lines.extend(f"- **{item['id']}**: {item['proposal']}" for item in catalog["decisions"])
+    lines.extend(
+        f"- **{item['id']}**: {item['proposal']}" for item in catalog["decisions"]
+    )
     lines.extend(
         [
             "",
             "## Compatibility",
             "",
-            "An existing versioned identifier keeps its meaning. Meaning changes and incompatible property, binding, surface, asset-slot, child, or fallback changes require a new major identifier; retain the old descriptor. The initial purpose baseline is in `catalog/v1/compatibility.json`.",
+            f"An existing versioned identifier keeps its meaning. Meaning changes and incompatible property, binding, surface, asset-slot, child, or fallback changes require a new major identifier; retain the old descriptor. "
+            "A destructive catalog change is released with a Control Plane "
+            "major-version bump. The initial purpose baseline is in "
+            f"`provider_views/catalog/{catalog['control_plane_version']}/compatibility.json`.",
         ]
     )
     lines.append("")
@@ -556,7 +599,7 @@ def render_reference(catalog: dict[str, Any]) -> str:
 
 def expected_outputs(catalog: dict[str, Any]) -> dict[Path, str]:
     return {
-        GENERATED / "provider-views-catalog-v1.json": json.dumps(
+        CATALOG_ARTIFACT: json.dumps(
             catalog, ensure_ascii=False, indent=2, sort_keys=True
         )
         + "\n",
@@ -590,7 +633,9 @@ def main() -> int:
     except (KeyError, TypeError, ValueError) as exc:
         print(f"Provider Views catalog validation failed:\n{exc}", file=sys.stderr)
         return 1
-    print("Provider Views catalog valid: 7 surfaces, 12 binding sources, 30 components.")
+    print(
+        "Provider Views catalog valid: 7 surfaces, 12 binding sources, 30 components."
+    )
     return 0
 
 

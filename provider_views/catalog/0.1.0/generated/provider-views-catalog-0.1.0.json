@@ -97,9 +97,8 @@
       ]
     }
   ],
-  "catalog_version": 1,
+  "catalog_sha256": "4c73605ff4518be3bf3ef12bedeb0ff72ff32fcb72261bfdbd46fa966683a09a",
   "compatibility": {
-    "catalog_version": 1,
     "initial_meaning_baseline": [
       {
         "identifier": "stateforge.ui/action.operation_cancel@1",
@@ -223,8 +222,8 @@
       }
     ],
     "policy": {
-      "canonical_source": "Each accepted catalog release preserves a snapshot of these meanings and a generated versioned artifact for comparison.",
-      "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major.",
+      "canonical_source": "The catalog is part of the Control Plane release. Generated artifacts record the full Control Plane version and a digest of the catalog content; no independent catalog version is assigned.",
+      "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major. A destructive catalog change also requires a Control Plane major-version bump.",
       "meaning_change": "Do not change the meaning of an existing versioned identifier. Introduce a new major identifier and retain the old descriptor when meaning changes."
     },
     "status": "proposed"
@@ -2047,6 +2046,7 @@
       "purpose": "Ordered events, conditions, or checkpoints."
     }
   ],
+  "control_plane_version": "0.1.0",
   "decisions": [
     {
       "id": "binding-sources",
@@ -2081,7 +2081,6 @@
   ],
   "ownership": "stateforge-control-plane",
   "reference_corpus": {
-    "catalog_version": 1,
     "examples": [
       {
         "component_identifiers": [
@@ -2194,7 +2193,6 @@
     "usage": "Illustrative Control Plane design and renderer-test fixtures. These cases are not SFP conformance requirements or claims that the Providers are implemented."
   },
   "renderer_registry": {
-    "catalog_version": 1,
     "note": "Catalog membership is not renderer availability. Add an identifier here only when this Control Plane build actually registers and verifies its renderer.",
     "status": "not_implemented",
     "supported_component_identifiers": [],
