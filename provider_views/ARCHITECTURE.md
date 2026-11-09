@@ -194,19 +194,17 @@ declaration travelling through SFP to the Control Plane renderer.
 
 ## Frontend stack decision
 
-**Open decision.** This milestone does not select a frontend framework or
-bundler. React with TypeScript, Vue with TypeScript, and Svelte with
-TypeScript are viable candidates. A build tool such as Vite is a separate
-choice from the UI framework. The decision should use a small vertical slice
-of Provider Overview and operation-run components and compare:
+The Control Plane frontend will use **React, TypeScript, and Vite**. React
+will implement the Control Plane-owned component renderers and shared UI
+primitives. TypeScript will provide typed renderer interfaces and should be
+checked or generated against the versioned catalog contracts. Vite will
+provide the development server and production bundling for the self-hosted
+Control Plane frontend; it is the build tool, not the UI framework.
 
-- fidelity to catalog-derived types and compile-time authoring feedback;
-- accessibility, keyboard behavior, responsive layout, and theme integration;
-- renderer isolation, safe binding resolution, and auditability;
-- maintainability of 30 distinct components and shared primitives;
-- testability across the Provider-to-Control-Plane path;
-- self-hosted build/deployment fit, bundle size, and contributor experience.
-
-The catalog JSON and SFP presentation payload must stay framework-neutral.
-A later frontend-stack decision can change internal rendering technology
-without changing Provider declarations or component identifiers.
+This stack choice does not make React a Provider-facing dependency. The
+catalog JSON, generated Provider authoring API, and SFP presentation payload
+remain framework-neutral. Providers declare catalog components and data;
+they do not send React components or executable frontend code. React remains
+an internal Control Plane implementation detail, so replacing it later would
+not require changing Provider declarations, SFP messages, or component
+identifiers.
