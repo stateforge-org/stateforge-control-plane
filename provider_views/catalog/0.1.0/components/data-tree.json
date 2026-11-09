@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/data.tree@1",
-  "catalog_status": "proposed",
   "purpose": "Nested structured data.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

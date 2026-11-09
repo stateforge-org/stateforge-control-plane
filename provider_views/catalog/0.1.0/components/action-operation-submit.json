@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/action.operation_submit@1",
-  "catalog_status": "proposed",
   "purpose": "Request placement of the host-controlled admission action.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1"

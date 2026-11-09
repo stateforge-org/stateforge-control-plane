@@ -1,7 +1,7 @@
 # Provider Views catalog for Control Plane 0.1.0
 
 This directory is the editable source for the Control Plane-owned Provider
-Views catalog. Each core renderer registration has its own JSON file under
+Views catalog. Each core component contract has its own JSON file under
 `components/`. Surface contracts, binding sources, proposed product decisions,
 compatibility policy, and the non-normative workload corpus are kept as shared
 documents beside those definitions.
@@ -20,7 +20,6 @@ python3 tools/provider_views_catalog.py --check
 python3 -m unittest discover -s tests
 ```
 
-All six catalog-wide decisions and all per-component property contracts are
-currently marked proposed. Review them before treating this baseline as a
-stable Control Plane API. An identifier's meaning is preserved; incompatible
-changes require a new major identifier while retaining the old contract.
+The catalog defines the component contracts available to this Control Plane
+release. An identifier's meaning is preserved; incompatible changes require a
+new major identifier while retaining the old contract.

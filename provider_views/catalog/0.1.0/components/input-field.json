@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/input.field@1",
-  "catalog_status": "proposed",
   "purpose": "Schema-compatible scalar control.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

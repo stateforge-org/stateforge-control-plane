@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/status.progress@1",
-  "catalog_status": "proposed",
   "purpose": "Determinate or staged progress.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.run@1"

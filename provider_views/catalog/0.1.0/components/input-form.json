@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/input.form@1",
-  "catalog_status": "proposed",
   "purpose": "Complete schema-generated form.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

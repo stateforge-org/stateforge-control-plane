@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/status.badge@1",
-  "catalog_status": "proposed",
   "purpose": "Compact semantic state.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/layout.tabs@1",
-  "catalog_status": "proposed",
   "purpose": "Alternate related representations.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

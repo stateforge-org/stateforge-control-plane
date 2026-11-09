@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/layout.grid@1",
-  "catalog_status": "proposed",
   "purpose": "Responsive grid.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

@@ -199,7 +199,6 @@ def load_and_validate() -> dict[str, Any]:
     decisions_doc = read_json(CATALOG / "decisions.json")
     compatibility_doc = read_json(CATALOG / "compatibility.json")
     reference_corpus_doc = read_json(CATALOG / "reference-corpus.json")
-    registry = read_json(CATALOG / "renderer-registry.json")
     surfaces = {item["identifier"]: item for item in surfaces_doc["surfaces"]}
     sources = {item["identifier"]: item for item in sources_doc["sources"]}
     errors: list[str] = []
@@ -343,10 +342,6 @@ def load_and_validate() -> dict[str, Any]:
         fallback_ids = component["fallback_guidance"]["recommended_core_components"]
         if any(target not in by_id for target in fallback_ids):
             errors.append(f"{identifier}: fallback references unknown core component")
-        if component.get("catalog_status") != "proposed":
-            errors.append(
-                f"{identifier}: expected proposed status pending catalog review"
-            )
         child_rule = component.get("children", {})
         if child_rule.get("allowed"):
             families = set(child_rule.get("allowed_component_families", []))
@@ -388,31 +383,18 @@ def load_and_validate() -> dict[str, Any]:
                 )
 
     decision_ids = {decision["id"] for decision in decisions_doc["decisions"]}
-    if decision_ids != EXPECTED_DECISIONS or decisions_doc.get("status") != "proposed":
-        errors.append(
-            "the six unresolved PDF decisions must remain explicitly proposed"
-        )
-    supported = registry.get("supported_component_identifiers", [])
-    if any(identifier not in by_id for identifier in supported):
-        errors.append("renderer registry references a component outside the catalog")
-    if registry.get("status") == "not_implemented" and supported:
-        errors.append("not_implemented renderer registry cannot claim support")
+    if decision_ids != EXPECTED_DECISIONS:
+        errors.append("the six catalog decisions must remain present")
     if errors:
         raise ValueError("\n".join(f"- {error}" for error in errors))
-    registry_artifact = dict(registry)
-    registry_artifact["unsupported_component_identifiers"] = sorted(
-        actual_ids - set(supported)
-    )
     catalog = {
         "ownership": "stateforge-control-plane",
-        "status": "proposed",
         "surfaces": surfaces_doc["surfaces"],
         "binding_sources": sources_doc["sources"],
         "components": sorted(components, key=lambda item: item["identifier"]),
         "decisions": decisions_doc["decisions"],
         "compatibility": compatibility_doc,
         "reference_corpus": reference_corpus_doc,
-        "renderer_registry": registry_artifact,
     }
     canonical_catalog = json.dumps(
         catalog,
@@ -433,8 +415,6 @@ def render_reference(catalog: dict[str, Any]) -> str:
         "",
         f"> Control Plane version: `{catalog['control_plane_version']}` · catalog SHA-256: `{catalog['catalog_sha256']}`",
         "",
-        "> Status: proposed. The entries define Control Plane contracts; they do not assert that every renderer is implemented or enabled.",
-        "",
         "The Control Plane owns this catalog. Provider tooling may consume the generated JSON; Protocol transports the generic presentation tree and does not own this component registry.",
         "",
         "## Surfaces",
@@ -449,14 +429,6 @@ def render_reference(catalog: dict[str, Any]) -> str:
         )
     lines.extend(
         [
-            "",
-            "## Renderer availability",
-            "",
-            f"Registry status: `{catalog['renderer_registry']['status']}`. "
-            f"Currently registered: {len(catalog['renderer_registry']['supported_component_identifiers'])}; "
-            f"catalog entries without a renderer: {len(catalog['renderer_registry']['unsupported_component_identifiers'])}.",
-            "",
-            "Catalog membership alone never makes a renderer available. The Control Plane build must register and verify an implementation before advertising support.",
             "",
             "## Core components",
             "",
@@ -477,8 +449,6 @@ def render_reference(catalog: dict[str, Any]) -> str:
                 f"### `{component['identifier']}`",
                 "",
                 component["purpose"],
-                "",
-                "Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.",
                 "",
                 "**Properties**",
                 "",

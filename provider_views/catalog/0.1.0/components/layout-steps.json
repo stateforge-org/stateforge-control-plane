@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/layout.steps@1",
-  "catalog_status": "proposed",
   "purpose": "Ordered stages or procedures.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",
