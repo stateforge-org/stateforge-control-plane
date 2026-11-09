@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/data.log@1",
-  "catalog_status": "proposed",
   "purpose": "Bounded streaming or retained log output.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.run@1",

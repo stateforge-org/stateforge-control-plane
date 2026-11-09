@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/media.image@1",
-  "catalog_status": "proposed",
   "purpose": "Content-addressed PNG or sanitized SVG.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

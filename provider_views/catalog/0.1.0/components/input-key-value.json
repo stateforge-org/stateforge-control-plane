@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/input.key_value@1",
-  "catalog_status": "proposed",
   "purpose": "Arbitrary property-map editor.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

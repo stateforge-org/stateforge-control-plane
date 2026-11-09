@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/data.diff@1",
-  "catalog_status": "proposed",
   "purpose": "Before/after or proposed/current differences.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.run@1",

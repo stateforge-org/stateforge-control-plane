@@ -1,8 +1,6 @@
 # Provider Views catalog
 
-> Control Plane version: `0.1.0` · catalog SHA-256: `4c73605ff4518be3bf3ef12bedeb0ff72ff32fcb72261bfdbd46fa966683a09a`
-
-> Status: proposed. The entries define Control Plane contracts; they do not assert that every renderer is implemented or enabled.
+> Control Plane version: `0.1.0` · catalog SHA-256: `20c0ef72fe7f651bf9e5f245fbad74f136c61e39189cbef8d7384f84c254f66a`
 
 The Control Plane owns this catalog. Provider tooling may consume the generated JSON; Protocol transports the generic presentation tree and does not own this component registry.
 
@@ -17,12 +15,6 @@ The Control Plane owns this catalog. Provider tooling may consume the generated 
 | `stateforge.ui/surface.trigger.policy@1` | Present a trigger while it is selected and configured in policy. | `trigger.declaration@1`, `trigger.policy@1` |
 | `stateforge.ui/surface.trigger.event@1` | Present one published trigger occurrence. | `trigger.event@1` |
 | `stateforge.ui/surface.evidence@1` | Present structured evidence and audit material associated with an operation or trigger. | `evidence.record@1` |
-
-## Renderer availability
-
-Registry status: `not_implemented`. Currently registered: 0; catalog entries without a renderer: 30.
-
-Catalog membership alone never makes a renderer available. The Control Plane build must register and verify an implementation before advertising support.
 
 ## Core components
 
@@ -63,8 +55,6 @@ Catalog membership alone never makes a renderer available. The Control Plane bui
 
 Request placement of the host-controlled cancellation action.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 None.
@@ -98,8 +88,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Request placement of the host-controlled admission action.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 None.
@@ -132,8 +120,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/content.markdown@1`
 
 Sanitized restricted Markdown.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -178,8 +164,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/content.text@1`
 
 Plain trusted text.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -227,8 +211,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Results, checkpoints, evidence, and references.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -272,8 +254,6 @@ Provider may supply a complete core-component fallback. Recommended: `stateforge
 ### `stateforge.ui/data.chart@1`
 
 Line, area, bar, or scatter series.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -323,8 +303,6 @@ Provider may supply a complete core-component fallback. Recommended: `stateforge
 
 Read-only code or structured text.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -370,8 +348,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/data.diff@1`
 
 Before/after or proposed/current differences.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -426,8 +402,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Labels and scalar values.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -469,8 +443,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/data.log@1`
 
 Bounded streaming or retained log output.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -517,8 +489,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/data.metric@1`
 
 One important numeric measurement.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -567,8 +537,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/data.table@1`
 
 Repeated objects or records.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -621,8 +589,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Nodes and relationships.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -666,8 +632,6 @@ Provider may supply a complete core-component fallback. Recommended: `stateforge
 ### `stateforge.ui/data.tree@1`
 
 Nested structured data.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -715,8 +679,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Repeated structured values.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -761,8 +723,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/input.code@1`
 
 Structured text, JSON, YAML, or expression editor.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -811,8 +771,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Schema-compatible scalar control.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -860,8 +818,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Complete schema-generated form.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -905,8 +861,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/input.key_value@1`
 
 Arbitrary property-map editor.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -953,8 +907,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Nested object editor.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -999,8 +951,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/input.secret@1`
 
 A writeOnly secret value.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -1048,8 +998,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Responsive grid.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -1087,8 +1035,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/layout.section@1`
 
 Titled, optionally collapsible section.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -1130,8 +1076,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Vertical or horizontal content flow.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -1169,8 +1113,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/layout.steps@1`
 
 Ordered stages or procedures.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -1214,8 +1156,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Alternate related representations.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -1258,8 +1198,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Content-addressed PNG or sanitized SVG.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -1299,8 +1237,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/status.badge@1`
 
 Compact semantic state.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 
@@ -1348,8 +1284,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 
 Determinate or staged progress.
 
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
-
 **Properties**
 
 | Property | JSON Schema |
@@ -1393,8 +1327,6 @@ Provider may supply a complete core-component fallback. Recommended: none specif
 ### `stateforge.ui/status.timeline@1`
 
 Ordered events, conditions, or checkpoints.
-
-Catalog status: proposed. Properties are presentation-only; operational schemas remain authoritative.
 
 **Properties**
 

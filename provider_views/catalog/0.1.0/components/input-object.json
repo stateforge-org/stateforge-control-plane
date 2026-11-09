@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/input.object@1",
-  "catalog_status": "proposed",
   "purpose": "Nested object editor.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

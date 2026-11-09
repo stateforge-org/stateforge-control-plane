@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/input.array@1",
-  "catalog_status": "proposed",
   "purpose": "Repeated structured values.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

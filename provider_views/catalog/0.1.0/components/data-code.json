@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/data.code@1",
-  "catalog_status": "proposed",
   "purpose": "Read-only code or structured text.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

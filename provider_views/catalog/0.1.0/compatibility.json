@@ -1,5 +1,4 @@
 {
-  "status": "proposed",
   "policy": {
     "meaning_change": "Do not change the meaning of an existing versioned identifier. Introduce a new major identifier and retain the old descriptor when meaning changes.",
     "incompatible_contract_change": "A breaking property, binding, surface-applicability, asset-slot, child-structure, or fallback change requires a new major identifier; additive compatible changes may retain the major. A destructive catalog change also requires a Control Plane major-version bump.",

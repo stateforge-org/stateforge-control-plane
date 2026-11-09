@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/action.operation_cancel@1",
-  "catalog_status": "proposed",
   "purpose": "Request placement of the host-controlled cancellation action.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.run@1"

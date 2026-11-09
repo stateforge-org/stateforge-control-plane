@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/content.text@1",
-  "catalog_status": "proposed",
   "purpose": "Plain trusted text.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

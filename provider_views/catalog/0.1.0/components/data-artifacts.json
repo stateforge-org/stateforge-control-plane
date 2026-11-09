@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/data.artifacts@1",
-  "catalog_status": "proposed",
   "purpose": "Results, checkpoints, evidence, and references.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.result@1",

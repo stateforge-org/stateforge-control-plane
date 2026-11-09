@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/input.code@1",
-  "catalog_status": "proposed",
   "purpose": "Structured text, JSON, YAML, or expression editor.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.request@1",

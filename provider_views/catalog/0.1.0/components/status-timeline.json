@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/status.timeline@1",
-  "catalog_status": "proposed",
   "purpose": "Ordered events, conditions, or checkpoints.",
   "applicable_surfaces": [
     "stateforge.ui/surface.operation.run@1",

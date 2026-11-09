@@ -30,17 +30,14 @@ class ProviderViewsCatalogTests(unittest.TestCase):
             {component["identifier"] for component in catalog["components"]},
         )
 
-    def test_catalog_membership_does_not_imply_renderer_availability(self) -> None:
+    def test_catalog_contains_no_maturity_or_renderer_status(self) -> None:
         catalog = catalog_tool.load_and_validate()
 
-        self.assertEqual("not_implemented", catalog["renderer_registry"]["status"])
-        self.assertEqual(
-            [], catalog["renderer_registry"]["supported_component_identifiers"]
-        )
-        self.assertEqual(
-            catalog_tool.EXPECTED_COMPONENTS,
-            set(catalog["renderer_registry"]["unsupported_component_identifiers"]),
-        )
+        serialized = json.dumps(catalog)
+        for obsolete in ("catalog_status", "renderer_registry", "renderer-registry.json"):
+            with self.subTest(obsolete=obsolete):
+                self.assertNotIn(obsolete, serialized)
+        self.assertNotIn('"status":', serialized)
 
     def test_catalog_provenance_uses_the_full_control_plane_version(self) -> None:
         catalog = catalog_tool.load_and_validate()
@@ -73,7 +70,6 @@ class ProviderViewsCatalogTests(unittest.TestCase):
             "compatibility.json",
             "decisions.json",
             "reference-corpus.json",
-            "renderer-registry.json",
             "surfaces.json",
         ):
             with self.subTest(filename=filename):
@@ -83,11 +79,6 @@ class ProviderViewsCatalogTests(unittest.TestCase):
     def test_unresolved_design_choices_are_visible_as_proposals(self) -> None:
         catalog = catalog_tool.load_and_validate()
 
-        self.assertEqual("proposed", catalog["status"])
-        self.assertEqual(
-            "proposed",
-            catalog_tool.read_json(catalog_tool.CATALOG / "decisions.json")["status"],
-        )
         self.assertEqual(
             catalog_tool.EXPECTED_DECISIONS,
             {decision["id"] for decision in catalog["decisions"]},

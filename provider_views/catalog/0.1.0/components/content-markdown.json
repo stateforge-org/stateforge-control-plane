@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/content.markdown@1",
-  "catalog_status": "proposed",
   "purpose": "Sanitized restricted Markdown.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

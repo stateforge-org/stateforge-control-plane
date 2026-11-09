@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/layout.stack@1",
-  "catalog_status": "proposed",
   "purpose": "Vertical or horizontal content flow.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

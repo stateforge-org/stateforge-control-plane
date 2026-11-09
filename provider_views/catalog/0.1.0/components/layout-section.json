@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/layout.section@1",
-  "catalog_status": "proposed",
   "purpose": "Titled, optionally collapsible section.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",

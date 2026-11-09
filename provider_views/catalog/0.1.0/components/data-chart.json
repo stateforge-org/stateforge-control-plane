@@ -1,6 +1,5 @@
 {
   "identifier": "stateforge.ui/data.chart@1",
-  "catalog_status": "proposed",
   "purpose": "Line, area, bar, or scatter series.",
   "applicable_surfaces": [
     "stateforge.ui/surface.provider.overview@1",
